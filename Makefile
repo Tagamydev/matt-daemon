@@ -6,18 +6,16 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/24 19:28:25 by samusanc          #+#    #+#              #
-#    Updated: 2024/07/18 19:22:34 by samusanc         ###   ########.fr        #
+#    Updated: 2025/05/01 20:20:09 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	btc
+NAME		=	MattDaemon
 CXXFLAGS	=	-g -Wall -Wextra -Werror -I ./
-CXXFLAGS	+=	-std=c++98
 CXX		=	c++ $(CXXFLAGS)
 MAIN		=	./main.cpp
-INC		=	./BitcoinExchange.hpp
+INC		=	./MattDaemon.hpp
 SRCS		=	$(MAIN) \
-			./BitcoinExchange.cpp
 
 O_DIR		=	./objects/
 OBJS		=	$(addprefix $(O_DIR)/, $(SRCS:.cpp=.o))
