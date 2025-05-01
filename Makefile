@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/24 19:28:25 by samusanc          #+#    #+#              #
-#    Updated: 2025/05/01 20:20:09 by samusanc         ###   ########.fr        #
+#    Updated: 2025/05/01 21:32:15 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CXX		=	c++ $(CXXFLAGS)
 MAIN		=	./main.cpp
 INC		=	./MattDaemon.hpp
 SRCS		=	$(MAIN) \
+				./MattDaemon.cpp
 
 O_DIR		=	./objects/
 OBJS		=	$(addprefix $(O_DIR)/, $(SRCS:.cpp=.o))
