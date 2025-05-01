@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 20:21:27 by samusanc          #+#    #+#             */
-/*   Updated: 2025/05/01 22:02:53 by samusanc         ###   ########.fr       */
+/*   Updated: 2025/05/01 22:05:00 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class	Tintin_reporter{
 		void	log_def(std::string &str, t_log flag);
 		std::string		date();
 		std::ofstream	_log_file;
+		bool	lock;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:23:41 by samusanc          #+#    #+#             */
-/*   Updated: 2025/05/01 22:03:22 by samusanc         ###   ########.fr       */
+/*   Updated: 2025/05/01 22:05:16 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 #include <system_error>
 
 Tintin_reporter::Tintin_reporter() {
+	lock = false;
 	this->open_log();
 	this->open_lock();
 	this->info("Started.");
 }
 
 Tintin_reporter::~Tintin_reporter() {
-	this->delete_lock();
+	if (lock)
+		this->delete_lock();
 	this->_log_file.close();
 	this->info("Quitting.");
 }
@@ -58,6 +60,7 @@ void	Tintin_reporter::open_lock() {
 		exit(1);
 	}
 	file.close();
+	lock = true;
 }
 
 void	Tintin_reporter::open_log() {

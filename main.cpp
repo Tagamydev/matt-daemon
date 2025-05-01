@@ -21,6 +21,7 @@ void err(const std::string& msg) {
     exit(1);
 }
 void my_cleanup() {
+	glob->delete_lock();
 	glob->info("Quiting.");
 }
 
