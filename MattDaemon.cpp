@@ -6,11 +6,12 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 21:23:41 by samusanc          #+#    #+#             */
-/*   Updated: 2025/05/01 21:57:27 by samusanc         ###   ########.fr       */
+/*   Updated: 2025/05/01 22:03:22 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MattDaemon.hpp"
+#include <system_error>
 
 Tintin_reporter::Tintin_reporter() {
 	this->open_log();
@@ -19,15 +20,21 @@ Tintin_reporter::Tintin_reporter() {
 }
 
 Tintin_reporter::~Tintin_reporter() {
+	this->delete_lock();
 	this->_log_file.close();
 	this->info("Quitting.");
 }
 
+void	Tintin_reporter::delete_lock() {
+	std::error_code	ec;
+	std::filesystem::remove("/var/lock/matt_daemon.lock", ec);
+}
 void	Tintin_reporter::open_lock() {
 	const std::string filename = "/var/lock/matt_daemon.lock";
 	std::filesystem::path p{filename};
 
-	if (std::filesystem::exists(filename)) {
+	if (std::filesystem::exists(filename))
+	{
 		this->err("Error file locked.");
         std::cout << "File already exists. Exiting.\n";
 		exit(1);
