@@ -10,17 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	btc
+NAME		=	MattDaemon
 CXXFLAGS	=	-g -Wall -Wextra -Werror -I ./
-CXXFLAGS	+=	-std=c++98
+#CXXFLAGS	+=	-std=c++98
 CXX		=	c++ $(CXXFLAGS)
 MAIN		=	./main.cpp
-INC		=	./BitcoinExchange.hpp
+INC		=	./Daemonizer.hpp
 SRCS		=	$(MAIN) \
-			./BitcoinExchange.cpp
+			./Daemonizer.cpp ./Server.cpp ./TintinReporter.cpp
 
-O_DIR		=	./objects/
-OBJS		=	$(addprefix $(O_DIR)/, $(SRCS:.cpp=.o))
+#O_DIR		=	./objects/
+#OBJS		=	$(addprefix $(O_DIR)/, $(SRCS:.cpp=.o))
+OBJS		=	$(SRCS:.cpp=.o)
 
 $(O_DIR)/%.o: %.cpp
 	mkdir -p $(@D)
